@@ -1,0 +1,78 @@
+db
+
+show dbs
+
+show collections
+
+db.version()
+
+use <databasename>
+
+db.createCollection("<collectionName>")
+
+db.getCollection("<collectionName>").drop()
+db.<collectionName>.drop()
+
+db.dropDatabase()
+
+
+############### Inserting########### 
+
+db.<collectionName>.insert(<Object> or <Array of Objects>)
+
+db.<collectionName>.insertOne(<Object>)
+
+db.<collectionName>.insertMany(<Array of Objects>)
+
+##############
+db.getCollection("<collectionName>.insert({})
+
+db.<collectionName>.find()
+
+db.<collectionName>.insert({}, {}, {})
+
+########## empty a collection ############
+
+db.getCollection('<collectionName>').remove({})
+
+############# Read ###########
+
+db.<collectionName>.find(<query>, <fields>)
+
+db.<collectionName>.findOne(<query>, <fields>)
+
+####### Changing iterator size which is 20 by default #######
+
+help
+DBQuery.shellBatchSize = 10
+
+########### changing batch size which is 101 by default #########
+
+db.cursor.find().batchSize(30)
+
+######## iteration of cursor
+
+var cursor = db.<collection name>.find(<args>);
+
+cursor.next()
+cursor.hasNext() returns true or false
+cursor.objLeftInBatch() returns no of remaing documents in cursor
+
+cursor.toArray()
+
+cursor.forEach(<function>)
+
+cursor.count()
+cursor.limit(<number>)
+cursor.skio(<number>)
+cursor.sort(fieldname1..   )
+
+
+db.getCollection('cursor').find({}).count()
+db.getCollection('cursor').find({}).limit(3)
+db.getCollection('cursor').find({}).skip(4)
+db.getCollection('cursor').find({}).sor({index:-1})
+
+sort -> skip -> limit 
+
+db.getCollection('cursor').findOne({})
